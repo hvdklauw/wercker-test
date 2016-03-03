@@ -1,4 +1,4 @@
-box: python3.4
+box: python:3.4
 build:
     steps:
         - script:
