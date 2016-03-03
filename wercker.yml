@@ -5,8 +5,10 @@ build:
             name: do something
             code: |
                 python --version > version.txt
+                cp version.txt $WERCKER_OUTPUT_DIR
+
 deploy:
     steps:
         - script:
             name: list
-            code: ls -al
+            code: cat version.txt
