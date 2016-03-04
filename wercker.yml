@@ -5,10 +5,14 @@ build:
             name: do something
             code: |
                 python --version > version.txt
-                cp version.txt $WERCKER_OUTPUT_DIR
+    after-steps:
+        - script:
+            name: bla
+            code: |
+              ls -al $WERCKER_REPORT_ARTIFACTS_DIR
 
 deploy:
     steps:
         - script:
-            name: list
-            code: cat version.txt
+            name: show
+            code: ls -al
