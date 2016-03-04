@@ -9,10 +9,12 @@ build:
         - script:
             name: bla
             code: |
-              ls -al $WERCKER_REPORT_ARTIFACTS_DIR
+              cp version.txt $WERCKER_REPORT_ARTIFACTS_DIR
 
 deploy:
     steps:
         - script:
             name: show
-            code: ls -al
+            code: |
+              ls -al
+              ls -al $WERCKER_REPORT_ARTIFACTS_DIR
