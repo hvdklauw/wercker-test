@@ -1,20 +1,12 @@
-box: python:3.4
+box: python:3.5
 build:
     steps:
         - script:
             name: do something
             code: |
-                python --version > version.txt
+                python --version > $WERCKER_REPORT_ARTIFACTS_DIR/env.txt
     after-steps:
         - script:
             name: bla
             code: |
-              cp version.txt $WERCKER_REPORT_ARTIFACTS_DIR
-
-deploy:
-    steps:
-        - script:
-            name: show
-            code: |
-              ls -al
-              ls -al $WERCKER_REPORT_ARTIFACTS_DIR
+              env >> $WERCKER_REPORT_ARTIFACTS_DIR/env.txt
